@@ -2,7 +2,7 @@
 xmlns:h="http://xmlns.jcp.org/jsf/html"
 xmlns:p="http://primefaces.org/ui">
 <h:head>
-<title>Curso de Deploy</title>
+<title>---- Curso de Deploy ----</title>
 <style type="text/css">
 body { background-image: url("img/cream-pixels.png"); }
 .bold { font-weight: bold; }
@@ -19,7 +19,7 @@ border-radius: 20px; margin-top: 100px; }
 <h2 id="titulo">#{helloWorld.greetings()}</h2>
 <h:form id="formulario">
 <h:panelGrid columns="4" cellpadding="5">
-<h:outputLabel styleClass="bold" for="nome" value="Digite seu nome:" />
+<h:outputLabel styleClass="bold" for="nome" value="Digite seu nome ->:" />
 <p:inputText id="nome" value="#{helloWorld.name}" />
 <p:commandButton value="Processar" update="nome-invertido" icon="pi pi-check" />
 <p:commandButton value="Limpar" action="#{helloWorld.clean()}" update="nome nome-invertido"
