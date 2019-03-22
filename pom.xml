@@ -54,12 +54,26 @@
 
     <repositories>
         <repository>
-            <id>prime-repo</id>
-            <name>PrimeFaces Maven Repository</name>
-            <url>http://repository.primefaces.org</url>
+            <id>central</id>
+            <name>Local Artifactory Lib Releases</name>
+            <url>http://localhost:8081/artifactory/libs-release</url>
         </repository>
     </repositories>
-    
+
+    <pluginRepositories>
+        <pluginRepository>
+            <releases>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>central</id>
+            <name>Local Artifactory Lib Releases</name>
+            <url>http://localhost:8081/artifactory/libs-release</url>
+        </pluginRepository>
+    </pluginRepositories>
+
     <build>
         <finalName>${project.artifactId}</finalName>
         <resources>
@@ -98,7 +112,7 @@
             </plugin>
         </plugins>
     </build>
-    
+
 
 
     <profiles>
@@ -120,7 +134,7 @@
                 <filters>
                     <filter>src/main/filters/desenvolvimento.properties</filter>
                 </filters>
-                
+
                 <plugins>
                     <plugin>
                         <groupId>org.apache.tomcat.maven</groupId>
@@ -131,7 +145,7 @@
                         </configuration>
                     </plugin>
                 </plugins>
-                
+
             </build>
         </profile>
 
@@ -159,7 +173,7 @@
     </profiles>
 
 
-    
+
 
 
 </project>
