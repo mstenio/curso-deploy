@@ -59,74 +59,7 @@
             <url>http://repository.primefaces.org</url>
         </repository>
     </repositories>
-
-
-    <profiles>
-        <profile>
-            <id>local</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <build>
-                <filters>
-                    <filter>src/main/filters/local.properties</filter>
-                </filters>
-            </build>
-        </profile>
-
-        <profile>
-            <id>desenvolvimento</id>
-            <build>
-                <filters>
-                    <filter>src/main/filters/desenvolvimento.properties</filter>
-                </filters>
-                
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.tomcat.maven</groupId>
-                        <artifactId>tomcat7-maven-plugin</artifactId>
-                        <version>2.2</version>
-                        <configuration>
-                            <url>http://localhost:8080/manager/text</url>
-                            <path>/${project.build.finalName}</path>
-                            <username>admin</username>
-                            <password>admin</password>
-                            <update>true</update>
-                        </configuration>
-                    </plugin>
-                </plugins>
-                
-            </build>
-        </profile>
-
-        <profile>
-            <id>producao</id>
-            <build>
-                <filters>
-                    <filter>src/main/filters/producao.properties</filter>
-                </filters>
-
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.tomcat.maven</groupId>
-                        <artifactId>tomcat7-maven-plugin</artifactId>
-                        <version>2.2</version>
-                        <configuration>
-                            <url>http://localhost:8180/manager/text</url>
-                            <path>/${project.build.finalName}</path>
-                            <username>admin</username>
-                            <password>admin</password>
-                            <update>true</update>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-
-
-    </profiles>
-
-
+    
     <build>
         <finalName>${project.artifactId}</finalName>
         <resources>
@@ -165,7 +98,68 @@
             </plugin>
         </plugins>
     </build>
+    
 
+
+    <profiles>
+        <profile>
+            <id>local</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+                <filters>
+                    <filter>src/main/filters/local.properties</filter>
+                </filters>
+            </build>
+        </profile>
+
+        <profile>
+            <id>desenvolvimento</id>
+            <build>
+                <filters>
+                    <filter>src/main/filters/desenvolvimento.properties</filter>
+                </filters>
+                
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.tomcat.maven</groupId>
+                        <artifactId>tomcat7-maven-plugin</artifactId>
+                        <version>2.2</version>
+                        <configuration>
+                            <url>http://localhost:8080/manager/text</url>
+                        </configuration>
+                    </plugin>
+                </plugins>
+                
+            </build>
+        </profile>
+
+        <profile>
+            <id>producao</id>
+            <build>
+                <filters>
+                    <filter>src/main/filters/producao.properties</filter>
+                </filters>
+
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.tomcat.maven</groupId>
+                        <artifactId>tomcat7-maven-plugin</artifactId>
+                        <version>2.2</version>
+                        <configuration>
+                            <url>http://localhost:8180/manager/text</url>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+
+    </profiles>
+
+
+    
 
 
 </project>
